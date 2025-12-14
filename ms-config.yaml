@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: ms-config-new
+    name: ms-config
 
   cloud:
     config:
