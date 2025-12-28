@@ -21,11 +21,11 @@ spring:
         dialect: org.hibernate.dialect.MariaDBDialect
 
   application:
-    name: ms-user
+    name: service-user
 
 eureka:
   instance:
-    hostname: ms-user  # IMPORTANT: nom du conteneur
+    hostname: service-user  # IMPORTANT: nom du conteneur
     prefer-ip-address: false  # Désactivé pour Docker
     lease-renewal-interval-in-seconds: 5
     lease-expiration-duration-in-seconds: 10
