@@ -1,0 +1,63 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:mariadb://ms-user-db:3306/db_user?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    username: user
+    password: passer123
+    driver-class-name: org.mariadb.jdbc.Driver
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 10
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MariaDBDialect
+
+  application:
+    name: ms-user
+
+eureka:
+  instance:
+    hostname: ms-user  # IMPORTANT: nom du conteneur
+    prefer-ip-address: false  # Désactivé pour Docker
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 10
+  client:
+    service-url:
+      defaultZone: http://ms-discover:8761/eureka  # CORRIGÉ: ms-discover au lieu de localhost
+    fetch-registry: true
+    register-with-eureka: true
+    initial-instance-info-replication-interval-seconds: 5
+    registry-fetch-interval-seconds: 5
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+springdoc:
+  api-docs:
+    path: /ms-user/v3/api-docs
+    enabled: true       
+  swagger-ui:
+    path: /ms-user/swagger-ui.html
+    enabled: true
+
+
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud: DEBUG
+    com.netflix.eureka: DEBUG
+    com.netflix.discovery: DEBUG
