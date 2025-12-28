@@ -1,0 +1,56 @@
+# ...existing code...
+server:
+  port: 8088
+
+spring:
+  application:
+    name: ms-gateway
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+      routes:
+        - id: ms-user-api-users
+          uri: lb://ms-user
+          predicates:
+            - Path=/api-users/v1/**
+
+        - id: ms-user-ms
+          uri: lb://ms-user
+          predicates:
+            - Path=/ms-user/**
+
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods: "*"
+
+      httpclient:
+        connect-timeout: 5000
+        response-timeout: 10s
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ms-discover:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+    healthcheck:
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,gateway
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+# ...existing code...
