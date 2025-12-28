@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mariadb://ms-etudiant-db:3306/db_cv?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    url: jdbc:mariadb://ms-etudiant-db:3306/db_etudiant?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
     username: etudiant_user
     password: passer123
     driver-class-name: org.mariadb.jdbc.Driver
