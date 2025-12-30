@@ -15,10 +15,10 @@ spring:
       routes:
 
         # ===== USER =====
-        - id: ms-user
+        - id: service-user
           uri: lb://service-user
           predicates:
-            - Path=/ms-user/**
+            - Path=/service-user/**
           filters:
             - StripPrefix=1
 
