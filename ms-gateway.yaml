@@ -26,7 +26,7 @@ spring:
         - id: ms-classe
           uri: lb://ms-classe
           predicates:
-            - Path=/api/classes/**
+            - Path=/ms-classe/**
           filters:
             - StripPrefix=1
 
