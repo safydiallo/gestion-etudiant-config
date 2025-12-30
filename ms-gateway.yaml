@@ -9,7 +9,7 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true
+          enabled: false  # Désactive la découverte automatique des routes
           lower-case-service-id: true
 
       routes:
