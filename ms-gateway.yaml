@@ -9,7 +9,7 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: false  # Désactive la découverte automatique des routes
+          enabled: true  # la découverte automatique des routes
           lower-case-service-id: true
 
       routes:
@@ -26,7 +26,7 @@ spring:
         - id: ms-classe
           uri: lb://ms-classe
           predicates:
-            - Path=/ms-classe/**
+            - Path=/api/classes/**
           filters:
             - StripPrefix=1
 
