@@ -10,7 +10,7 @@ spring:
     hikari:
       connection-timeout: 60000
       maximum-pool-size: 10
-  
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -22,6 +22,22 @@ spring:
 
   application:
     name: service-user
+
+  # ✅ AJOUT OBLIGATOIRE : Resource Server JWT (Keycloak)
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://keycloak:8180/realms/gestion-etudiants
+
+# ✅ AJOUT OPTIONNEL : seulement si service-user crée des users Keycloak via API
+app:
+  keycloak:
+    server-url: http://keycloak:8180
+    realm: gestion-etudiants
+    admin-realm: master
+    admin-username: admin
+    admin-password: admin
 
 eureka:
   instance:
@@ -45,7 +61,6 @@ management:
   endpoint:
     health:
       show-details: always
-
 
 logging:
   level:
