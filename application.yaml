@@ -1,9 +1,3 @@
-# =====================================================================
-# Configuration globale partagée par tous les microservices
-# Projet : gestion-etudiant (UASZ)
-# Repository : gestion-etudiant-config
-# =====================================================================
-
 spring:
   application:
     name: global-config
@@ -14,21 +8,18 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: false  # Désactive la découverte automatique des routes
+          enabled: false
 
-# Configuration globale des logs
 logging:
   level:
     root: INFO
     org.springframework: INFO
 
-# Gestion des erreurs serveur
 server:
   error:
     include-message: always
     include-binding-errors: always
 
-# Actuator accessible pour tous les microservices
 management:
   endpoints:
     web:
@@ -37,3 +28,10 @@ management:
   endpoint:
     health:
       show-details: always
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    config-url: /ms-classe/v3/api-docs
