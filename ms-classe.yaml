@@ -10,7 +10,7 @@ spring:
     hikari:
       connection-timeout: 60000
       maximum-pool-size: 10
-  
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -26,12 +26,12 @@ spring:
 eureka:
   instance:
     hostname: ms-classe
-    prefer-ip-address: false  
+    prefer-ip-address: false
     lease-renewal-interval-in-seconds: 5
     lease-expiration-duration-in-seconds: 10
   client:
     service-url:
-      defaultZone: http://ms-discover:8761/eureka  
+      defaultZone: http://ms-discover:8761/eureka
     fetch-registry: true
     register-with-eureka: true
     initial-instance-info-replication-interval-seconds: 5
@@ -46,7 +46,16 @@ management:
     health:
       show-details: always
 
-
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    disable-swagger-default-url: true
+    config-url: /ms-classe/v3/api-docs/swagger-config
+    url: /ms-classe/v3/api-docs
+    oauth2-redirect-url: http://localhost:8088/ms-classe/swagger-ui/oauth2-redirect.html
+  server-url: http://localhost:8088/ms-classe
 
 logging:
   level:
