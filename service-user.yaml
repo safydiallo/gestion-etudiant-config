@@ -30,10 +30,7 @@ spring:
         jwt:
           issuer-uri: http://keycloak:8080/realms/gestion-etudiants
 
-   # ✅ Permettre le démarrage sans Keycloak
-  cloud:
-    config:
-      fail-fast: false
+ 
       
 # ✅ AJOUT OPTIONNEL : seulement si service-user crée des users Keycloak via API
 app:
@@ -64,7 +61,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: "health,info,metrics"
   endpoint:
     health:
       show-details: always
