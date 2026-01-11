@@ -57,10 +57,11 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics
+        include: "*"
   endpoint:
     health:
       show-details: always
+
 
 springdoc:
   api-docs:
