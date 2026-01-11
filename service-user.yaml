@@ -40,8 +40,6 @@ app:
     admin-realm: master
     admin-username: admin
     admin-password: admin
-    client-id: gestion-etudiants-backend
-    client-secret: 1ks55CoDgvWFfX60CX6nJl1NOGDRO3ac
 
 eureka:
   instance:
