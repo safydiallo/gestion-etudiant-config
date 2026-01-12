@@ -28,7 +28,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://keycloak:8080/realms/gestion-etudiants
+          issuer-uri: http://keycloak:9090/realms/gestion-etudiants
 
    # ✅ Permettre le démarrage sans Keycloak
   cloud:
@@ -38,7 +38,7 @@ spring:
 # ✅ AJOUT OPTIONNEL : seulement si service-user crée des users Keycloak via API
 app:
   keycloak:
-    server-url: http://keycloak:8080
+    server-url: http://keycloak:9090
     realm: gestion-etudiants
     admin-realm: master
     admin-username: admin
