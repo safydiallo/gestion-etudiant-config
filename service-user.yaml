@@ -20,7 +20,7 @@ keycloak:
   realm: gestion-etudiants
   admin-realm: master
   client-id: gestion-etudiants-backend
-  client-secret: dIewxUIhq0fYP2HWgYZeUGryvyOiX5ue
+  client-secret: wCBKpft4BEaFGuLXAzboi6XGiL22zp7q
 
 eureka:
   instance:
