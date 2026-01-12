@@ -63,9 +63,41 @@ spring:
           filters:
             - StripPrefix=1
 
+      # ======================
+      # CORS GLOBAL
+      # ======================
       globalcors:
         cors-configurations:
           '[/**]':
-            allowedOrigins: "*"
-            allowedHeaders: "*"
-            allowedMethods: "*"
+            allowed-origins: "*"
+            allowed-headers: "*"
+            allowed-methods: "*"
+
+      # ======================
+      # HTTP CLIENT
+      # ======================
+      httpclient:
+        connect-timeout: 5000
+        response-timeout: 10s
+
+      # ======================
+      # ACTUATOR
+      # ======================
+      management:
+        endpoint:
+          gateway:
+            enabled: true
+          health:
+            show-details: always
+        endpoints:
+          web:
+            exposure:
+              include: health,info,gateway
+
+      # ======================
+      # LOGS DEBUG (IMPORTANT)
+      # ======================
+      logging:
+        level:
+          org.springframework.cloud.gateway: DEBUG
+          org.springframework.cloud.loadbalancer: DEBUG
