@@ -39,6 +39,10 @@ keycloak:
   admin-realm: master
   client-id: gestion-etudiants-backend
   client-secret: dIewxUIhq0fYP2HWgYZeUGryvyOiX5ue
+  admin:
+    username: ${KEYCLOAK_ADMIN_USERNAME:admin}
+    password: ${KEYCLOAK_ADMIN_PASSWORD:admin}
+    client-id: ${KEYCLOAK_ADMIN_CLIENT_ID:admin-cli}
 
 eureka:
   instance:
