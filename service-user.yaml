@@ -30,7 +30,10 @@ spring:
         jwt:
           issuer-uri: http://keycloak:8080/realms/gestion-etudiants
 
- 
+   # ✅ Permettre le démarrage sans Keycloak
+  cloud:
+    config:
+      fail-fast: false
       
 # ✅ AJOUT OPTIONNEL : seulement si service-user crée des users Keycloak via API
 app:
@@ -40,7 +43,8 @@ app:
     admin-realm: master
     admin-username: admin
     admin-password: admin
-    admin-client-id: admin-cli
+    client-id: gestion-etudiants-backend
+    client-secret: 1ks55CoDgvWFfX60CX6nJl1NOGDRO3ac
 
 eureka:
   instance:
@@ -60,7 +64,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: "health,info,metrics"
+        include: "*"
   endpoint:
     health:
       show-details: always
