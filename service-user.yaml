@@ -2,14 +2,14 @@ server:
   port: 8081
 
 spring:
-  datasource:
-    url: jdbc:mariadb://service-user-db:3306/db_user?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
-    username: user
-    password: passer123
-    driver-class-name: org.mariadb.jdbc.Driver
-    hikari:
-      connection-timeout: 60000
-      maximum-pool-size: 10
+  # datasource:
+  #   url: jdbc:mariadb://service-user-db:3306/db_user?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+  #   username: user
+  #   password: passer123
+  #   driver-class-name: org.mariadb.jdbc.Driver
+  #   hikari:
+  #     connection-timeout: 60000
+  #     maximum-pool-size: 10
 
   jpa:
     hibernate:
